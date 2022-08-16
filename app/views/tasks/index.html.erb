@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>List of Tasks</h1>
+  <% @tasks.each do |task| %>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" disabled <%= "checked" if task.completed%>>
+        <%= link_to task.title, task_path(task) %>
+      </li>
+    </ul>
+  <% end %>
+  <div class="btn btn-primary mt-3">
+    <i class="fa-regular fa-calendar-plus"></i>
+    <%= link_to "Create new task", new_task_path, class: "text-decoration-none text-white"%>
+  </div>
+</div>

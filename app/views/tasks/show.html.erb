@@ -1,0 +1,23 @@
+<div class="container">
+  <h1><%= @task.title %></h1>
+  <div class="alert alert-primary">
+    <p><%= @task.details %></p>
+    <label for="flexCheckDefault">Done</label>
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" disabled <%= "checked" if @task.completed%>>
+  </div>
+
+  <div class="btn btn-primary me-3">
+    <i class="fa-regular fa-pen-to-square"></i>
+    <%= link_to "Edit task", edit_task_path, class: "text-decoration-none text-white" %>
+  </div>
+  <div class="btn btn-primary me-3">
+    <i class="fa-solid fa-ban"></i>
+    <%= link_to "Delete task",
+    task_path(@task),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-decoration-none text-white" %>
+  </div>
+  <div class="btn btn-primary me-3">
+    <i class="fa-solid fa-list-check"></i>
+    <%= link_to "View all Tasks", tasks_path, class: "text-decoration-none text-white" %>
+  </div>
+</div>
